@@ -11,7 +11,7 @@
 // 9 5 3 2
 // 8 4 4 2
 
-//  Console.Clear();
+// Console.Clear();
 // Console.Write("Введите количество строк массива: ");
 // int m = Convert.ToInt32(Console.ReadLine());
 // Console.Write("Введите количество столбцов массива: ");
@@ -25,11 +25,12 @@
 //     {
 //         for (int j = 0; j < array.GetLength(1); j++)
 //         {
-//             array[i, j] = new Random().Next(0, 100);
+//             array[i, j] = new Random().Next(0, 11);
 //         }
 //         Console.WriteLine();
 //     }
 // }
+
 
 // void PrintArray(int[,] array)
 // {
@@ -39,25 +40,36 @@
 //         {
 //             Console.Write(array[i, j] + " ");
 //         }
-//         Console.WriteLine();
+//         System.Console.WriteLine();
 //     }
 // }
 
-// int Metod(int[,] array)
+
+// int[,] Metod(int[,] array)
 // {
-// for (int i = 0; i < array.GetLength(0); i++)  // строки
-// {
-//       for (int j = 0; j < array.GetLength(1); j++) // строки, начинаем с [0,0],[0,1],[0,2]столбцы
+//     for (int i = 0; i < array.GetLength(0); i++)  // stroki
 //     {
-//     if (array[i,j]>array[i+1;j]) return x;
-//     else return y;
+//         for (int count = 0; count < array.GetLength(1) - 1; count++) //schetchik na stroke
+//         {
+//             for (int j = 0; j < array.GetLength(1) - 1; j++) //strolbci
+//             {
+
+//                 {
+//                     if (array[i, j] < array[i, j + 1])
+//                     {
+//                         int temp = array[i, j];
+//                         array[i, j] = array[i, j + 1];
+//                         array[i, j + 1] = temp;
+//                     }
+//                 }
+//             }
+//         }
 //     }
 
-//     System.Console.WriteLine($"Среднее арифметическое столбца = {sum}/{m} это {SredneeArif[i]}"); 
+//     return array;
 // }
 // System.Console.WriteLine();
 
-// }
 
 
 // FillArray(array);
@@ -76,12 +88,12 @@
 // Например, задан массив:
 
 // 1 4 7 2
-
 // 5 9 2 3
-
 // 8 4 2 4
-
 // 5 2 6 7
+
+
+
 
 // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
 
@@ -119,58 +131,120 @@
 
 // Задача 53: Задайте двумерный массив. Напишите программу, 
 // которая поменяет местами первую и последнюю строку массива.
-Console.Clear();
+// Console.Clear();
 
-Console.Write("Введите количество строк массива: ");
-int rows = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите количество столбцов массива: ");
-int columns = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите количество строк массива: ");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите количество столбцов массива: ");
+// int columns = Convert.ToInt32(Console.ReadLine());
 
-int[,] Fill2DArray(int rows, int columns)
-{
-    int[,] array = new int[rows, columns];
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            array[i, j] = new Random().Next(1, 100);
-        }
-    }
-    return array;
-}
 
-void Print2DArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write($"{array[i, j]}\t");
-        }
-        Console.WriteLine();
-    }
-}
 
-void SortArray(int[,] array)
-// которая поменяет местами первую и последнюю строку массива.
-{
-    int temp = 0;
-    for (int j = 0; j < array.GetLength(1); j++) //  стоки
-    {
-        int temp=array[array.GetLength(1)-1,j];
-        array[array.GetLength(1)-1,j]=array[0,j];
-        array[0,j]=temp;
-    }
-}
+// int [,] Fill2DArray(int rows, int columns)
+// {
+//     int[,] array = new int[rows, columns];
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i, j] = new Random().Next(1, 100);
+//         }
+//     }
+//     return array;
+// }
 
-Fill2DArray(Array);
-Print2DArray();
-System.Console.WriteLine();
-SortArray();
-Print2DArray();
+// void Print2DArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write($"{array[i, j]}\t");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// void SortArray(int[,] array)
+// // которая поменяет местами первую и последнюю строку массива.
+// {
+//     for (int j = 0; j < array.GetLength(1); j++) // строки
+//     {
+//         int temp = array[rows-1, j]; //строки
+//         array[rows-1, j] = array[0, j];
+//         array[0, j] = temp;
+//     }
+// }
+
+// int[,] array1 = Fill2DArray(rows, columns);
+// Print2DArray(array1);
+// System.Console.WriteLine();
+// SortArray(array1);
+// Print2DArray(array1);
 
 // Задача 55: Задайте двумерный массив. Напишите программу, которая заменяет
 // строки на столбцы. В случае, если это невозможно, программа должна вывести сообщение для пользователя.
+// Console.Clear();
+
+// Console.Write("Введите количество строк массива: ");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите количество столбцов массива: ");
+// int columns = Convert.ToInt32(Console.ReadLine());
+
+
+
+// int[,] Fill2DArray()
+// {
+//     int[,] array = new int[rows, columns];
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i, j] = new Random().Next(1, 100);
+//         }
+//     }
+//     return array;
+// }
+
+// void Print2DArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write($"{array[i, j]}\t"); // \t - разделение каждого лемента массива
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// int[,] SortArray(int[,] array)
+// // которая поменяет строки на столбцы, но когда они равны.
+// {
+//     int[,] array1 = new int[rows, columns]; //новый массив, такого же размера
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++) // стр  оки
+//         {
+//             array1[i,j]=array[j,i]; //меняем в новом массиве лементы на противоположные
+//         }
+//     }
+//     return array1;
+// }
+// if (rows==columns) //если кол-во строк и столбцов совпадает, то выводим наш новый массив
+// {
+//     int[,] massiv =Fill2DArray();
+//     Print2DArray(massiv);
+//     System.Console.WriteLine();
+//     int [,] massiv1=SortArray(massiv);
+//     Print2DArray(massiv1);
+// }
+// else //иначе просим другой массив
+// {
+//     System.Console.WriteLine("Для данной сортировки массив не той размерности");
+// }
+
+
 
 
 
@@ -183,6 +257,82 @@ Print2DArray();
 // 2 встречается 1 раз
 // 8 встречается 1 раз
 // 9 встречается 3 раза
+
+// Console.Clear();
+
+// Console.Write("Введите количество строк массива: ");
+// int rows = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите количество столбцов массива: ");
+// int columns = Convert.ToInt32(Console.ReadLine());
+
+
+// int[,] Fill2DArray()
+// {
+//     int[,] array = new int[rows, columns];
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i, j] = new Random().Next(1, 21);
+//         }
+//     }
+//     return array;
+// }
+// void Print2DArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write($"{array[i, j]}\t"); // \t - разделение каждого лемента массива
+//         }
+//         Console.WriteLine();
+//     }
+// }
+// void Dictionary(int[,] array)
+// {
+//     int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+//     foreach (int num in numbers)
+//     {
+//         int count = 0; //счетчик проверки, есть ли i-й лемент в нашем массиве?
+//         foreach (int i in array)
+//         {
+//             if (num == i)
+//             {
+//                 count++;
+//             }
+//         }
+//         if (count >= 0)
+//         {
+//             Console.WriteLine($"Значение {num} встречается {count} раз(а)");
+//         }
+//     }
+// }
+
+// int[,] massiv = Fill2DArray();
+// Print2DArray(massiv);
+// Dictionary(massiv);
+
+// или
+// int count=0;
+// for (int num=0; num<10;num++)
+// {
+//     count=0;
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             if (array[i,j]==num)
+//             {
+//                 count++;
+//             }
+//         }
+//     }
+//     if (count!=0) System.Console.WriteLine($"{num} встречается {count} раз");
+// }
+
+
+
 
 
 
@@ -200,6 +350,73 @@ Print2DArray();
 // 9 4 2
 // 2 2 6
 // 3 4 7
+
+
+// Console.Clear();
+// Console.Write("Введите количество строк массива: ");
+// int m = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите количество столбцов массива: ");
+// int n = Convert.ToInt32(Console.ReadLine());
+
+// int[,] array = new int[m, n];
+
+// void FillArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i, j] = new Random().Next(0, 10);
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// void PrintArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write(array[i, j] + " ");
+//         }
+//         System.Console.WriteLine();
+//     }
+// }
+
+
+// void FindMin (int[,] array)
+// {
+//     int imin=0;
+//     int jmin=0;
+//     int min=array[0,0];
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             if (min>array[i,j])
+//             {
+//                 min=array[i,j];
+//                 imin=i;
+//                 jmin=j;
+//             }
+//         }
+//     }
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             if (i !=imin && j !=jmin) Console.Write(array[i,j]+" ");
+//         }
+//       System.Console.WriteLine();
+//     }
+// }
+
+// FillArray(array);
+// PrintArray(array);
+// System.Console.WriteLine();
+// FindMin(array);
+
 
 
 
