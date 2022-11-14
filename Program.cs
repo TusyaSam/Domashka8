@@ -166,9 +166,6 @@
 
 
 
-
-
-
 // Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
 // Например, даны 2 матрицы:
 // 2 4 | 3 4
@@ -176,6 +173,66 @@
 // Результирующая матрица будет:
 // 18 20
 // 15 18
+// Взяла квадратные матрицы, дабы не усложнять проверками на размерность
+
+Console.Clear();
+Console.Write("Введите размерность матриц: ");
+int m = Convert.ToInt32(Console.ReadLine());
+
+int[,] array1 = new int[m, m];
+int[,] array2 = new int[m, m];
+int[,] array3 = new int[m, m];
+
+void FillArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(0, 11);
+        }
+        Console.WriteLine();
+    }
+}
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        System.Console.WriteLine();
+    }
+}
+
+void Proizvedenie(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int count = 0; count < array.GetLength(0); count++)
+            {
+                array3[i, j] = array3[i, j] + (array1[i,count] * array2[count,j]);
+            }
+        }
+    }
+}
+
+FillArray(array1);
+PrintArray(array1);
+FillArray(array2);
+PrintArray(array2);
+System.Console.WriteLine();
+Proizvedenie(array3);
+PrintArray(array3);
+System.Console.WriteLine();
+
+
+
+
 
 // Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
 // Массив размером 2 x 2 x 2
