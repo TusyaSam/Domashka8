@@ -93,64 +93,74 @@
 // 5 2 6 7
 // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
 
-Console.Clear();
-Console.Write("Введите размерность массива: ");
-int m = Convert.ToInt32(Console.ReadLine());
+// Console.Clear();
+// Console.Write("Введите размерность массива: ");
+// int m = Convert.ToInt32(Console.ReadLine());
 
-int[,] array = new int[m, m];
+// int[,] array = new int[m, m];
 
-void FillArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            array[i, j] = new Random().Next(0, 11);
-        }
-        Console.WriteLine();
-    }
-}
+// void FillArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i, j] = new Random().Next(0, 11);
+//         }
+//         Console.WriteLine();
+//     }
+// }
 
-void PrintArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write(array[i, j] + " ");
-        }
-        System.Console.WriteLine();
-    }
-}
-
-
-void Metod(int[,] array)
-{
-    int sumMin = 100000;
-    for (int i = 0; i < array.GetLength(0); i++)  // stroki
-    {
-        int sum = 0;
-        for (int j = 0; j < array.GetLength(1); j++) //strolbci
-        {
-            sum = sum + array[i, j];             // nahodim cymmy postrochno
-        }
-        System.Console.WriteLine($"сумма {i + 1} строки = {sum}");
+// void PrintArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write(array[i, j] + " ");
+//         }
+//         System.Console.WriteLine();
+//     }
+// }
 
 
-        if (sum < sumMin)        //nahodim min cymmy
-            sumMin = sum;
+// void Metod(int[,] array)
+// {
+//     int sumMin = 100000;
+//     int[] MassSum = new int[array.GetLength(1)];  //sozdaem massiv summ
+//     int x=0;  //nomer stroki s min summoi
 
-    }
-    System.Console.WriteLine($"сумма MIN= {sumMin}");
-}
-System.Console.WriteLine();
+//     for (int i = 0; i < array.GetLength(0); i++)  // stroki
+//     {
+//         int sum = 0;
+//         for (int j = 0; j < array.GetLength(1); j++) //strolbci
+//         {
+//             sum = sum + array[i, j];             // nahodim cymmy postrochno
+//         }
+//         System.Console.WriteLine($"сумма {i + 1} строки = {sum}");
+
+
+//         MassSum[i] = sum; // zapisuvaem summi v massiv
+//                           // System.Console.WriteLine($"massiv MIN= {MassSum[i]} ");
+
+//         if (sum < sumMin)        //nahodim min cymmy
+//             sumMin = sum;
+
+//         if (sumMin == MassSum[i])
+//             x = i + 1;   //nomer stroki s min summoi
+
+//     }
+//     System.Console.WriteLine($"строка с min суммой = {x} ");
+//     // System.Console.WriteLine($"сумма MIN= {sumMin} ");
+// }
+// System.Console.WriteLine();
 
 
 
-FillArray(array);
-PrintArray(array);
-System.Console.WriteLine();
-Metod(array);
+// FillArray(array);
+// PrintArray(array);
+// System.Console.WriteLine();
+// Metod(array);
 
 
 
