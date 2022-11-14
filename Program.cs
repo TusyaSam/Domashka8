@@ -91,11 +91,73 @@
 // 5 9 2 3
 // 8 4 2 4
 // 5 2 6 7
-
-
-
-
 // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
+
+Console.Clear();
+Console.Write("Введите размерность массива: ");
+int m = Convert.ToInt32(Console.ReadLine());
+
+int[,] array = new int[m, m];
+
+void FillArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(0, 11);
+        }
+        Console.WriteLine();
+    }
+}
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        System.Console.WriteLine();
+    }
+}
+
+
+void Metod(int[,] array)
+{
+    int sumMin = 100000;
+    for (int i = 0; i < array.GetLength(0); i++)  // stroki
+    {
+        int sum = 0;
+        for (int j = 0; j < array.GetLength(1); j++) //strolbci
+        {
+            sum = sum + array[i, j];             // nahodim cymmy postrochno
+        }
+        System.Console.WriteLine($"сумма {i + 1} строки = {sum}");
+
+
+        if (sum < sumMin)        //nahodim min cymmy
+            sumMin = sum;
+
+    }
+    System.Console.WriteLine($"сумма MIN= {sumMin}");
+}
+System.Console.WriteLine();
+
+
+
+FillArray(array);
+PrintArray(array);
+System.Console.WriteLine();
+Metod(array);
+
+
+
+
+
+
+
 
 // Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
 // Например, даны 2 матрицы:
